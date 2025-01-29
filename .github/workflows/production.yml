@@ -25,8 +25,13 @@ jobs:
 
       - name: Verify directory structure
         run: |
-          echo "Current directory structure:"
-          ls -lR src/
+            echo "Current directory structure:"
+            ls -lR src/DockerApi/DockerApi/
+            # التحقق من وجود ملف المشروع
+            if [ ! -f "src/DockerApi/DockerApi/DockerApi.csproj" ]; then
+              echo "Error: DockerApi.csproj not found!"
+              exit 1
+            fi
 
       - name: Set up .NET
         uses: actions/setup-dotnet@v3

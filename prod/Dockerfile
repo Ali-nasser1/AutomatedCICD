@@ -1,14 +1,15 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# تغيير المسار ليتوافق مع الهيكل الفعلي
-COPY ./src/DockerApi ./DockerApi
+# نسخ الملفات مع الحفاظ على الهيكل الداخلي
+COPY ./src/DockerApi/DockerApi ./DockerApi/
 
+# استعادة الحزم وبناء المشروع
 RUN dotnet restore "DockerApi/DockerApi.csproj"
-RUN dotnet publish "DockerApi/DockerApi.csproj" -c Release -o /app/publish
+RUN dotnet build "DockerApi/DockerApi.csproj" -c Release -o /app/build
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-COPY --from=build /app/publish .
+COPY --from=build /app/build .
 EXPOSE 80
 ENTRYPOINT ["dotnet", "DockerApi.dll"]
