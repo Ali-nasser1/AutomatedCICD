@@ -1,10 +1,8 @@
-version: '3.8'
-
 services:
   webapi:
     build:
-      context: ./prod
-      dockerfile: Dockerfile
+      context: . # التأكد من أن السياق يشير إلى المجلد الجذر
+      dockerfile: ./prod/Dockerfile
     env_file: ./prod/.env.prod
     ports:
       - "80:80"
