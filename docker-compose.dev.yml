@@ -1,0 +1,10 @@
+services:
+  webapi:
+    build:
+      context: .
+      dockerfile: ./dev/Dockerfile
+    env_file: ./dev/.env.dev
+    ports:
+      - "5000:8080" # غير المنفذ من 80 إلى 8080
+    volumes:
+      - ./src/DockerApi:/src/DockerApi

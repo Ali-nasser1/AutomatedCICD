@@ -1,0 +1,7 @@
+D:\DockerProject\src\DockerApi\DockerApi\obj\Debug\net8.0\DockerApi.csproj.AssemblyReference.cache
+D:\DockerProject\src\DockerApi\DockerApi\obj\Debug\net8.0\DockerApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\DockerProject\src\DockerApi\DockerApi\obj\Debug\net8.0\DockerApi.AssemblyInfoInputs.cache
+D:\DockerProject\src\DockerApi\DockerApi\obj\Debug\net8.0\DockerApi.AssemblyInfo.cs
+D:\DockerProject\src\DockerApi\DockerApi\obj\Debug\net8.0\DockerApi.csproj.CoreCompileInputs.cache
+D:\DockerProject\src\DockerApi\DockerApi\obj\Debug\net8.0\DockerApi.MvcApplicationPartsAssemblyInfo.cs
+D:\DockerProject\src\DockerApi\DockerApi\obj\Debug\net8.0\DockerApi.MvcApplicationPartsAssemblyInfo.cache
