@@ -1,7 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-COPY ./src/DockerApi/DockerApi ./DockerApi
+# تغيير المسار ليتوافق مع الهيكل الفعلي
+COPY ./src/DockerApi ./DockerApi
 
 RUN dotnet restore "DockerApi/DockerApi.csproj"
 RUN dotnet publish "DockerApi/DockerApi.csproj" -c Release -o /app/publish
