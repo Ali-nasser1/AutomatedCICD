@@ -1,14 +1,13 @@
+using DockerApi.Controllers;
 using Xunit;
 
-namespace DockerApi.Tests;
-
-public class SampleTests
+public class FirstTest
 {
     [Fact]
-    public void TestAddition()
+    public void TestApiResponse()
     {
-        int a = 2;
-        int b = 3;
-        Assert.Equal(5, a + b);
+        var controller = new WeatherForecastController();
+        var result = controller.Get();
+        Assert.NotNull(result);
     }
 }
