@@ -7,23 +7,24 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
+    services:
+      docker:
+        image: docker:dind
     steps:
       - uses: actions/checkout@v3
+
+      - name: Setup Docker
+        uses: docker/setup-buildx-action@v2
+
+      - name: Install docker-compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose-plugin
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: 8.0.x
-
-      - name: Restore dependencies
-        run: dotnet restore src/DockerApi/DockerApi/DockerApi.csproj
-
-      - name: Build
-        run: dotnet build src/DockerApi/DockerApi/DockerApi.csproj --configuration Debug --no-restore
-
-      - name: Test
-        run: dotnet test src/DockerApi/DockerApi/DockerApi.csproj --configuration Debug --no-restore --no-build
 
       - name: Docker Build
         run: docker-compose -f docker-compose.dev.yml build
