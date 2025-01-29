@@ -1,10 +1,9 @@
-version: '3.8'
-
 services:
   webapi:
     build:
-      context: .  # التأكد من أن السياق يشير إلى المجلد الجذر
+      context: .
       dockerfile: ./prod/Dockerfile
+    image: alinasser1/my-dotnet-app:latest # غير هذا
     env_file: ./prod/.env.prod
     ports:
       - "80:80"
