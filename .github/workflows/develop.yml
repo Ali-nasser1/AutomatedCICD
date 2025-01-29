@@ -17,13 +17,13 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Restore dependencies
-        run: dotnet restore src/DockerApi/DockerApi.csproj
+        run: dotnet restore src/DockerApi/DockerApi/DockerApi.csproj
 
       - name: Build
-        run: dotnet build src/DockerApi/DockerApi.csproj --configuration Debug --no-restore
+        run: dotnet build src/DockerApi/DockerApi/DockerApi.csproj --configuration Debug --no-restore
 
       - name: Test
-        run: dotnet test src/DockerApi/DockerApi.csproj --configuration Debug --no-restore --no-build
+        run: dotnet test src/DockerApi/DockerApi/DockerApi.csproj --configuration Debug --no-restore --no-build
 
       - name: Docker Build
         run: docker-compose -f docker-compose.dev.yml build
